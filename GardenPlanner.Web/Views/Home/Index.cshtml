@@ -1,14 +1,58 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Garden Planner";
 }
 
-<div class="jumbotron">
+@{ 
+    int bedWidth = 6;
+    int bedHeight = 4;
+    int width = (1 / bedWidth) * 100;
+}
+
+@for (int i = 0; i < bedHeight; i++)
+{
+    <div class="row">
+
+        @for (int j = 0; j < 12; j++)
+        {
+            <div class="col-sm-1">
+                @if (j < bedWidth)
+                {
+                    int idNum = (i*bedWidth) + j;
+                    <div id="@idNum" class="droppable empty-rect"><p>@i , @j</p></div>
+                }
+            </div>
+        }
+
+    </div>
+}
+
+<div id="vegetable-icons">
+    <div id="tomato" class="draggable vegetable">Tomato</div>
+</div>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $('.draggable').draggable();
+        $('.droppable').droppable({
+            drop: function (event, ui) {
+                dropId = this.id;
+                dragId = ui.draggable.context.id;
+                $('#' + dragId).clientHeight = this.clientHeight;
+                $('#' + dragId).clientWidth = this.clientWidth;
+                alert(dragId + ' was dropped into ' + dropId);
+            }
+        });
+    });
+
+</script>
+
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+</div>*@
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -28,4 +72,4 @@
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
-</div>
+</div>*@

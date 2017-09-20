@@ -22,3 +22,32 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+#garden-layout {
+    background-color: #add88e;
+}
+.empty-rect {
+    border: 1px solid black;
+    width: 100%;
+    /*padding-top: 8.333333333333332%;*/
+    padding-top: 80%;
+    margin: 0px;
+}
+.empty-rect:hover {
+    background-color: grey;
+}
+.garden-row {
+    text-align:center;
+}
+.col-sm-1 {
+    padding: 0px;
+}
+.vegetable {
+    border: 1px solid black;
+    width: 75px;
+    /*padding-top: 8.333333333333332%;*/
+    height: 75px;
+    margin: 0px;
+    background-color: #add88e;
+}
