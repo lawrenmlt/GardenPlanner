@@ -27,7 +27,7 @@
 }
 
 <div id="vegetable-icons">
-    <div id="tomato" class="draggable vegetable">Tomato</div>
+    <div id="tomato" class="draggable vegetable">Tomato (4x4)</div>
 </div>
 
 <script type="text/javascript">
@@ -35,10 +35,11 @@
         $('.draggable').draggable();
         $('.droppable').droppable({
             drop: function (event, ui) {
-                dropId = this.id;
-                dragId = ui.draggable.context.id;
-                $('#' + dragId).clientHeight = this.clientHeight;
-                $('#' + dragId).clientWidth = this.clientWidth;
+                var dropId = this.id;
+                var dragId = ui.draggable.context.id;
+                var selector = '#' + dragId;
+                $(selector).clientHeight = this.clientHeight;
+                $(selector).clientWidth = this.clientWidth;
                 alert(dragId + ' was dropped into ' + dropId);
             }
         });
